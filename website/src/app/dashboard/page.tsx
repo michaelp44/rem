@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Calendar, Settings, Mic, HelpCircle, Users, HardDrive } from 'lucide-react';
 import { MemoryChat } from '@/components/MemoryChat';
 
-const ARCHIVE_EMAIL = 'mm1992@gmail.com';
+const ARCHIVE_EMAIL = 'mm19924@gmail.com';
 
 export default async function DashboardPage() {
   const { userId } = await auth();

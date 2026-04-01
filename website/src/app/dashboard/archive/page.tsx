@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { ArchiveChat } from '@/components/ArchiveChat';
 
-const ALLOWED_EMAIL = 'mm1992@gmail.com';
+const ALLOWED_EMAIL = 'mm19924@gmail.com';
 
 export default async function ArchivePage() {
   const { userId } = await auth();

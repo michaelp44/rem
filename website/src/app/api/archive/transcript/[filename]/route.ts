@@ -2,7 +2,7 @@ import { auth } from '@clerk/nextjs/server';
 import { NextRequest } from 'next/server';
 
 const SERVER = process.env.MEETING_SERVER_URL ?? 'http://localhost:8766';
-const ALLOWED_EMAIL = 'mm1992@gmail.com';
+const ALLOWED_EMAIL = 'mm19924@gmail.com';
 
 export async function GET(
   _req: NextRequest,
