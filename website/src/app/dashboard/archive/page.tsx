@@ -1,12 +1,19 @@
-import { auth } from '@clerk/nextjs/server';
+import { auth, clerkClient } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { ArchiveChat } from '@/components/ArchiveChat';
 
+const ALLOWED_EMAIL = 'mm1992@gmail.com';
+
 export default async function ArchivePage() {
   const { userId } = await auth();
   if (!userId) redirect('/login');
+
+  const client = await clerkClient();
+  const user = await client.users.getUser(userId);
+  const email = user.emailAddresses[0]?.emailAddress;
+  if (email !== ALLOWED_EMAIL) redirect('/dashboard');
 
   return (
     <div className="min-h-[80vh] gradient-bg py-12">

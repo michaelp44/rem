@@ -1,8 +1,10 @@
-import { auth } from '@clerk/nextjs/server';
+import { auth, clerkClient } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 import { Calendar, Settings, Mic, HelpCircle, Users, HardDrive } from 'lucide-react';
 import { MemoryChat } from '@/components/MemoryChat';
+
+const ARCHIVE_EMAIL = 'mm1992@gmail.com';
 
 export default async function DashboardPage() {
   const { userId } = await auth();
@@ -10,6 +12,11 @@ export default async function DashboardPage() {
   if (!userId) {
     redirect('/login');
   }
+
+  const client = await clerkClient();
+  const user = await client.users.getUser(userId!);
+  const email = user.emailAddresses[0]?.emailAddress;
+  const showArchive = email === ARCHIVE_EMAIL;
 
   return (
     <div className="min-h-[80vh] gradient-bg py-12">
@@ -48,13 +55,15 @@ export default async function DashboardPage() {
                     description="Manage voice profiles"
                   />
                 </Link>
-                <Link href="/dashboard/archive">
-                  <QuickAction
-                    icon={<HardDrive className="w-5 h-5" />}
-                    title="Recording Archive"
-                    description="Ask questions about recordings"
-                  />
-                </Link>
+                {showArchive && (
+                  <Link href="/dashboard/archive">
+                    <QuickAction
+                      icon={<HardDrive className="w-5 h-5" />}
+                      title="Recording Archive"
+                      description="Ask questions about recordings"
+                    />
+                  </Link>
+                )}
                 <QuickAction
                   icon={<Settings className="w-5 h-5" />}
                   title="Settings"

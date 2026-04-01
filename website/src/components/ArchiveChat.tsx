@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
+import Link from 'next/link';
 import { Send, HardDrive, User, Loader2, FileAudio, Brain } from 'lucide-react';
 
 interface Message {
@@ -132,11 +133,15 @@ export function ArchiveChat() {
         {!noServer && status!.files.length > 0 && (
           <div className="space-y-2 max-h-40 overflow-y-auto">
             {status!.files.map((f) => (
-              <div key={f.filename} className="flex items-center gap-2 text-sm text-gray-600">
+              <Link
+                key={f.filename}
+                href={`/dashboard/archive/${encodeURIComponent(f.filename)}`}
+                className="flex items-center gap-2 text-sm text-gray-600 hover:text-orange-600 transition-colors cursor-pointer"
+              >
                 <FileAudio className="w-4 h-4 text-orange-400 flex-shrink-0" />
-                <span className="truncate">{f.filename}</span>
+                <span className="truncate underline-offset-2 hover:underline">{f.filename}</span>
                 <span className="text-xs text-gray-400 flex-shrink-0">{f.volume}</span>
-              </div>
+              </Link>
             ))}
           </div>
         )}
