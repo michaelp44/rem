@@ -7,8 +7,8 @@
     
     <key>ProgramArguments</key>
     <array>
-        <string>/Users/michaelpukshanski/WebstormProjects/rem/cloud/gpu-worker/venv/bin/python3</string>
-        <string>/Users/michaelpukshanski/WebstormProjects/rem/cloud/gpu-worker/usb_watcher_mac.py</string>
+        <string>/Users/michaelminipc/WebstormProjects/rem/cloud/gpu-worker/venv/bin/python3</string>
+        <string>/Users/michaelminipc/WebstormProjects/rem/cloud/gpu-worker/usb_watcher_mac.py</string>
     </array>
     
     <key>EnvironmentVariables</key>
@@ -18,7 +18,7 @@
     </dict>
     
     <key>WorkingDirectory</key>
-    <string>/Users/michaelpukshanski/WebstormProjects/rem/cloud/gpu-worker</string>
+    <string>/Users/michaelminipc/WebstormProjects/rem/cloud/gpu-worker</string>
     
     <key>RunAtLoad</key>
     <true/>
@@ -27,10 +27,10 @@
     <true/>
     
     <key>StandardOutPath</key>
-    <string>/Users/michaelpukshanski/Library/Logs/rem-usb-watcher.log</string>
+    <string>/Users/michaelminipc/Library/Logs/rem-usb-watcher.log</string>
     
     <key>StandardErrorPath</key>
-    <string>/Users/michaelpukshanski/Library/Logs/rem-usb-watcher-error.log</string>
+    <string>/Users/michaelminipc/Library/Logs/rem-usb-watcher-error.log</string>
 </dict>
 </plist>
 
